@@ -69,6 +69,11 @@ export default {
         this.words = json
         this.currentWord = this.words[this.currentWordIndex]
       })
+
+    window.addEventListener('keyup', this.keyup)
+  },
+  beforeDestroy() {
+    window.removeEventListener('keyup', this.keyup)
   },
   methods: {
     feminine() {
@@ -103,6 +108,14 @@ export default {
 
       localStorage.setItem('currentWordIndex', this.currentWordIndex)
       localStorage.setItem('score', this.score)
+    },
+    keyup(event) {
+      if (event.key === 'ArrowLeft') {
+        this.feminine()
+      }
+      if (event.key === 'ArrowRight') {
+        this.masculine()
+      }
     }
   }
 }
