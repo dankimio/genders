@@ -1,20 +1,24 @@
 <template>
-  <div class="h-screen flex items-center justify-center flex-col">
+  <div class="h-screen flex items-center justify-center flex-col font-serif">
+    <h2 class="text-2xl mb-8">
+      Score: {{ score }}
+    </h2>
+
     <div
       class="flex items-center justify-center p-4 max-w-sm w-full h-48 mb-6
         bg-white
         shadow-lg rounded-lg
-        font-serif text-4xl text-gray-900
+        text-4xl text-gray-900
       "
     >
       <span v-if="incorrectAnswer" class="mr-2 text-red-600">
         {{ article }}
       </span>
 
-      <span>{{ currentWord.word }}</span>
+      <span class="">{{ currentWord.word }}</span>
     </div>
 
-    <div class="max-w-sm w-full flex text-gray-800 font-serif">
+    <div class="max-w-sm w-full flex text-gray-800">
       <button
         class="flex-1 p-3
           bg-white shadow-lg hover:shadow-xl rounded-lg
@@ -45,7 +49,8 @@ export default {
       words: [],
       currentWord: {},
       currentWordIndex: 0,
-      incorrectAnswer: false
+      incorrectAnswer: false,
+      score: 0
     }
   },
   computed: {
@@ -67,6 +72,9 @@ export default {
       if (this.currentWord.gender === 'f') {
         console.log('correct')
         this.nextWord()
+        if (!this.incorrectAnswer) {
+          this.score++
+        }
         this.incorrectAnswer = false
       } else {
         console.log('incorrect')
@@ -77,6 +85,9 @@ export default {
       if (this.currentWord.gender === 'm') {
         console.log('correct')
         this.nextWord()
+        if (!this.incorrectAnswer) {
+          this.score++
+        }
         this.incorrectAnswer = false
       } else {
         console.log('incorrect')
