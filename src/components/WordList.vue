@@ -2,9 +2,10 @@
   <div>
     <p>Word list</p>
 
-    <ul>
-      <li v-for="word in words" v-bind:key="word">{{ word }}</li>
-    </ul>
+    <div>
+      <span>{{ currentWord.word }}</span> |
+      <span>{{ currentWord.gender }}</span>
+    </div>
   </div>
 </template>
 
@@ -12,11 +13,18 @@
 export default {
   data () {
     return {
-      words: ['Hello', 'world', 'test']
+      words: [],
+      currentWord: {}
     }
   },
   created () {
     // Fetch words from CSV
+    fetch('/data/fr.json')
+      .then(response => response.json())
+      .then(json => {
+        this.words = json
+        this.currentWord = this.words[0]
+      })
   }
 }
 </script>
