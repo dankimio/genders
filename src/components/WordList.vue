@@ -1,23 +1,33 @@
 <template>
   <div class="h-screen flex items-center justify-center flex-col">
     <div
-      class="p-4 max-w-sm w-full mb-6
+      class="flex items-center justify-center p-4 max-w-sm w-full h-48 mb-6
         bg-white
         shadow-lg rounded-lg
-        font-serif text-center text-3xl text-gray-900
+        font-serif text-4xl text-gray-900
       "
     >
       <span>{{ currentWord.word }}</span>
     </div>
 
     <div class="max-w-sm w-full flex text-gray-800 font-serif">
-      <div class="flex-1 p-3 bg-white shadow-lg rounded-lg text-center">
+      <button
+        class="flex-1 p-3
+          bg-white shadow-lg hover:shadow-xl rounded-lg
+          transition-shadow duration-150
+          text-center"
+      >
         une
-      </div>
+      </button>
       <div class="mx-2" />
-      <div class="flex-1 p-3 bg-white shadow-lg rounded-lg text-center">
+      <button
+        class="flex-1 p-3
+          bg-white shadow-lg hover:shadow-xl rounded-lg
+          transition-shadow duration-150
+          text-center"
+      >
         un
-      </div>
+      </button>
     </div>
   </div>
 </template>
