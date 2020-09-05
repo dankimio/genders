@@ -3,16 +3,21 @@
     <p>Word list</p>
 
     <ul>
-      <li>Word 1</li>
-      <li>Word 2</li>
-      <li>Word 3</li>
+      <li v-for="word in words" v-bind:key="word">{{ word }}</li>
     </ul>
   </div>
 </template>
 
 <script>
 export default {
-
+  data () {
+    return {
+      words: ['Hello', 'world', 'test']
+    }
+  },
+  created () {
+    // Fetch words from CSV
+  }
 }
 </script>
 
