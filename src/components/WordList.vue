@@ -59,6 +59,9 @@ export default {
     }
   },
   created () {
+    this.currentWordIndex = parseInt(localStorage.getItem('currentWordIndex')) || 0
+    this.score = parseInt(localStorage.getItem('score')) || 0
+
     // Fetch words from CSV
     fetch('/data/fr.json')
       .then(response => response.json())
@@ -71,11 +74,11 @@ export default {
     feminine() {
       if (this.currentWord.gender === 'f') {
         console.log('correct')
-        this.nextWord()
         if (!this.incorrectAnswer) {
           this.score++
         }
         this.incorrectAnswer = false
+        this.nextWord()
       } else {
         console.log('incorrect')
         this.incorrectAnswer = true
@@ -84,11 +87,11 @@ export default {
     masculine() {
       if (this.currentWord.gender === 'm') {
         console.log('correct')
-        this.nextWord()
         if (!this.incorrectAnswer) {
           this.score++
         }
         this.incorrectAnswer = false
+        this.nextWord()
       } else {
         console.log('incorrect')
         this.incorrectAnswer = true
@@ -97,6 +100,9 @@ export default {
     nextWord() {
       this.currentWordIndex++
       this.currentWord = this.words[this.currentWordIndex]
+
+      localStorage.setItem('currentWordIndex', this.currentWordIndex)
+      localStorage.setItem('score', this.score)
     }
   }
 }
