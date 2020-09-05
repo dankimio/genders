@@ -15,7 +15,8 @@
         class="flex-1 p-3
           bg-white shadow-lg hover:shadow-xl rounded-lg
           transition-shadow duration-150
-          text-center"
+          text-center text-lg"
+        @click="feminine"
       >
         une
       </button>
@@ -24,7 +25,8 @@
         class="flex-1 p-3
           bg-white shadow-lg hover:shadow-xl rounded-lg
           transition-shadow duration-150
-          text-center"
+          text-center text-lg"
+        @click="masculine"
       >
         un
       </button>
@@ -37,7 +39,8 @@ export default {
   data () {
     return {
       words: [],
-      currentWord: {}
+      currentWord: {},
+      currentWordIndex: 0
     }
   },
   created () {
@@ -46,8 +49,30 @@ export default {
       .then(response => response.json())
       .then(json => {
         this.words = json
-        this.currentWord = this.words[0]
+        this.currentWord = this.words[this.currentWordIndex]
       })
+  },
+  methods: {
+    feminine() {
+      if (this.currentWord.gender === 'f') {
+        console.log('correct')
+      } else {
+        console.log('incorrect')
+      }
+      this.nextWord()
+    },
+    masculine() {
+      if (this.currentWord.gender === 'm') {
+        console.log('correct')
+      } else {
+        console.log('incorrect')
+      }
+      this.nextWord()
+    },
+    nextWord() {
+      this.currentWordIndex++
+      this.currentWord = this.words[this.currentWordIndex]
+    }
   }
 }
 </script>
