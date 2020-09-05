@@ -1,15 +1,15 @@
 <template>
   <div id="app">
-    <router-link to="/">
-      Home
-    </router-link>
-    <router-link to="/about">
-      About
-    </router-link>
+    <nav v-if="false">
+      <router-link to="/">
+        Home
+      </router-link>
+      <router-link to="/about">
+        About
+      </router-link>
+    </nav>
 
-    <div class="container mx-auto px-8">
-      <router-view />
-    </div>
+    <router-view class="container mx-auto px-8" />
   </div>
 </template>
 
