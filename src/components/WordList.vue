@@ -1,9 +1,14 @@
 <template>
-  <div>
-    <p>Word list</p>
-
-    <div>
-      <span>{{ currentWord.word }}</span> |
+  <div class="h-screen flex items-center justify-center">
+    <div
+      class="p-4 max-w-sm w-full
+        bg-white
+        shadow-lg rounded-lg
+        font-serif text-center text-3xl
+      "
+    >
+      <span>{{ currentWord.word }}</span>
+      &nbsp;
       <span>{{ currentWord.gender }}</span>
     </div>
   </div>

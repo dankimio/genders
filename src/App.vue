@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="bg-gray-100">
     <nav v-if="false">
       <router-link to="/">
         Home
