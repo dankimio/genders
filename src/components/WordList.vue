@@ -70,10 +70,10 @@ export default {
         this.currentWord = this.words[this.currentWordIndex]
       })
 
-    window.addEventListener('keyup', this.keyup)
+    window.addEventListener('keydown', this.keydown)
   },
   beforeDestroy() {
-    window.removeEventListener('keyup', this.keyup)
+    window.removeEventListener('keydown', this.keydown)
   },
   methods: {
     feminine() {
@@ -109,7 +109,7 @@ export default {
       localStorage.setItem('currentWordIndex', this.currentWordIndex)
       localStorage.setItem('score', this.score)
     },
-    keyup(event) {
+    keydown(event) {
       if (event.key === 'ArrowLeft') {
         this.feminine()
       }
