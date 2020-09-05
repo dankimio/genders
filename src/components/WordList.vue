@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen flex items-center justify-center flex-col font-serif">
+  <div class="min-h-screen flex items-center justify-center flex-col font-serif">
     <h2 class="text-2xl mb-8">
       Score: {{ score }}
     </h2>
