@@ -7,6 +7,10 @@
         font-serif text-4xl text-gray-900
       "
     >
+      <span v-if="incorrectAnswer" class="mr-2 text-red-600">
+        {{ article }}
+      </span>
+
       <span>{{ currentWord.word }}</span>
     </div>
 
@@ -40,7 +44,13 @@ export default {
     return {
       words: [],
       currentWord: {},
-      currentWordIndex: 0
+      currentWordIndex: 0,
+      incorrectAnswer: false
+    }
+  },
+  computed: {
+    article() {
+      return this.currentWord.gender === 'f' ? 'une' : 'un'
     }
   },
   created () {
@@ -56,18 +66,22 @@ export default {
     feminine() {
       if (this.currentWord.gender === 'f') {
         console.log('correct')
+        this.nextWord()
+        this.incorrectAnswer = false
       } else {
         console.log('incorrect')
+        this.incorrectAnswer = true
       }
-      this.nextWord()
     },
     masculine() {
       if (this.currentWord.gender === 'm') {
         console.log('correct')
+        this.nextWord()
+        this.incorrectAnswer = false
       } else {
         console.log('incorrect')
+        this.incorrectAnswer = true
       }
-      this.nextWord()
     },
     nextWord() {
       this.currentWordIndex++
