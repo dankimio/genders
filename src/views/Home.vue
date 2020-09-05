@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="font-sans">
     <img alt="Vue logo" src="../assets/logo.png">
 
     <WordList />
