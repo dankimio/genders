@@ -52,27 +52,23 @@ export default {
   methods: {
     feminine() {
       if (this.currentWord.gender === 'f') {
-        console.log('correct')
         if (!this.incorrectAnswer) {
           this.score++
         }
         this.incorrectAnswer = false
         this.nextWord()
       } else {
-        console.log('incorrect')
         this.incorrectAnswer = true
       }
     },
     masculine() {
       if (this.currentWord.gender === 'm') {
-        console.log('correct')
         if (!this.incorrectAnswer) {
           this.score++
         }
         this.incorrectAnswer = false
         this.nextWord()
       } else {
-        console.log('incorrect')
         this.incorrectAnswer = true
       }
     },
