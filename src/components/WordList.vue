@@ -1,7 +1,11 @@
 <template>
   <div id="word-list" class="flex-1 flex items-center justify-center flex-col mb-32">
-    <h2 class="text-2xl mb-8">
+    <h2 class="text-2xl mb-8 flex items-baseline">
       Score: {{ score }}
+
+      <small class="text-sm ml-2">
+        <a href="#" class="text-gray-700" @click="reset">Reset</a>
+      </small>
     </h2>
 
     <WordCard
@@ -86,6 +90,17 @@ export default {
       if (event.key === 'ArrowRight') {
         this.masculine()
       }
+    },
+    reset() {
+      if (!confirm('Are you sure?')) {
+        return
+      }
+
+      this.currentWord = {}
+      this.currentWordIndex = 0
+      this.incorrectAnswer = false
+      this.score = 0
+      this.nextWord()
     }
   }
 }

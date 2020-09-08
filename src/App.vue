@@ -3,7 +3,7 @@
     <router-view class="container flex-1 flex flex-col mx-auto px-8 pt-6" />
 
     <nav class="text-center py-4">
-      <router-link to="/rules">
+      <router-link to="/rules" class="mr-4">
         Rules
       </router-link>
     </nav>
