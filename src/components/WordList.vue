@@ -1,5 +1,5 @@
 <template>
-  <div id="word-list" class="flex-1 flex items-center justify-center flex-col font-serif">
+  <div id="word-list" class="flex-1 flex items-center justify-center flex-col">
     <h2 class="text-2xl mb-8">
       Score: {{ score }}
     </h2>

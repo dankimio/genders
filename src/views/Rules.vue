@@ -1,5 +1,5 @@
 <template>
-  <div class="text-gray-900 font-serif">
+  <div class="text-gray-900">
     <h1 class="text-4xl font-semibold mb-4">
       Rules
     </h1>
