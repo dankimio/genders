@@ -15,3 +15,9 @@
 
 <style src="./assets/tailwind.css">
 </style>
+
+<style>
+#app {
+  min-height: -webkit-fill-available;
+}
+</style>

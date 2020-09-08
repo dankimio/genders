@@ -1,5 +1,5 @@
 <template>
-  <div id="word-list" class="flex-1 flex items-center justify-center flex-col">
+  <div id="word-list" class="flex-1 flex items-center justify-center flex-col mb-32">
     <h2 class="text-2xl mb-8">
       Score: {{ score }}
     </h2>
@@ -92,7 +92,4 @@ export default {
 </script>
 
 <style>
-#word-list {
-  min-height: -webkit-fill-available;
-}
 </style>
