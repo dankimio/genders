@@ -8,16 +8,16 @@
       Masculine
     </h2>
 
-    <table class="mb-8 table-auto text-sm">
+    <table class="mb-8 table-auto text-sm xl:text-base">
       <thead>
         <tr>
           <th title="Ending" class="text-left">
             Ending
           </th>
-          <th title="No. words" class="text-right w-24">
+          <th title="No. words" class="text-right sm:w-24">
             No. words
           </th>
-          <th title="Precision" class="text-right w-24 mr-4">
+          <th title="Precision" class="text-right sm:w-24 mr-4">
             Precision
           </th>
           <th title="Main exceptions" class="text-left">
@@ -189,7 +189,7 @@
       Feminine
     </h2>
 
-    <table class="mb-8 table-auto text-sm">
+    <table class="mb-8 table-auto text-sm xl:text-base">
       <thead>
         <tr>
           <th title="Ending" class="text-left">
