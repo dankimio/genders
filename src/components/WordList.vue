@@ -10,34 +10,19 @@
     />
 
     <div class="max-w-sm w-full flex text-gray-800">
-      <button
-        class="flex-1 p-3
-          bg-white shadow-lg hover:shadow-xl rounded-lg
-          transition-shadow duration-150
-          text-center text-lg"
-        @click="feminine"
-      >
-        une
-      </button>
+      <AnswerButton label="une" @answer="feminine" />
       <div class="mx-2" />
-      <button
-        class="flex-1 p-3
-          bg-white shadow-lg hover:shadow-xl rounded-lg
-          transition-shadow duration-150
-          text-center text-lg"
-        @click="masculine"
-      >
-        un
-      </button>
+      <AnswerButton label="un" @answer="masculine" />
     </div>
   </div>
 </template>
 
 <script>
 import WordCard from './WordCard'
+import AnswerButton from './AnswerButton'
 
 export default {
-  components: { WordCard },
+  components: { WordCard, AnswerButton },
   data () {
     return {
       words: [],
