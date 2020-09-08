@@ -1,6 +1,6 @@
 <template>
-  <div id="app" class="bg-gray-100">
-    <nav v-if="false">
+  <div id="app" class="min-h-screen flex flex-col bg-gray-100">
+    <nav class="text-center py-4">
       <router-link to="/">
         Home
       </router-link>
@@ -9,7 +9,7 @@
       </router-link>
     </nav>
 
-    <router-view class="container mx-auto px-8" />
+    <router-view class="container flex-1 flex flex-col mx-auto px-8" />
   </div>
 </template>
 
