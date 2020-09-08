@@ -1,5 +1,9 @@
 <template>
   <div class="text-gray-900">
+    <router-link to="/" class="block mb-2">
+      ← Go back
+    </router-link>
+
     <h1 class="text-4xl font-semibold mb-4">
       Rules
     </h1>
@@ -14,14 +18,14 @@
           <th title="Ending" class="text-left">
             Ending
           </th>
-          <th title="No. words" class="text-right sm:w-24">
-            No. words
+          <th title="Words" class="text-right sm:w-24">
+            Words
           </th>
           <th title="Precision" class="text-right sm:w-24 mr-4">
             Precision
           </th>
-          <th title="Main exceptions" class="text-left">
-            Main exceptions
+          <th title="Exceptions" class="text-left">
+            Exceptions
           </th>
         </tr>
       </thead>
@@ -195,14 +199,14 @@
           <th title="Ending" class="text-left">
             Ending
           </th>
-          <th title="No. words" class="text-right w-24">
-            No. words
+          <th title="Words" class="text-right w-24">
+            Words
           </th>
           <th title="Precision" class="text-right w-24 mr-4">
             Precision
           </th>
-          <th title="Main exceptions" class="text-left">
-            Main exceptions
+          <th title="Exceptions" class="text-left">
+            Exceptions
           </th>
         </tr>
       </thead>
@@ -311,6 +315,11 @@ tr td:nth-child(3) {
   text-align: right;
 }
 tr th:nth-child(4), tr td:nth-child(4) {
-  padding-left: 2rem;
+  padding-left: .5rem;
+}
+@screen md {
+  tr th:nth-child(4), tr td:nth-child(4) {
+    padding-left: 2rem;
+  }
 }
 </style>
