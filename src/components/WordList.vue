@@ -29,6 +29,7 @@ export default {
   components: { WordCard, AnswerButton },
   data () {
     return {
+      exceptions: [],
       words: [],
       currentWord: {},
       currentWordIndex: 0,
@@ -40,8 +41,15 @@ export default {
     this.currentWordIndex = parseInt(localStorage.getItem('currentWordIndex')) || 0
     this.score = parseInt(localStorage.getItem('score')) || 0
 
-    // Fetch words from CSV
-    fetch('/data/fr.json')
+    // Fetch exceptions from JSON
+    fetch('/data/fr/exceptions.json')
+      .then(response => response.json())
+      .then(json => {
+        this.exceptions = json
+      })
+
+    // Fetch words from JSON
+    fetch('/data/fr/words.json')
       .then(response => response.json())
       .then(json => {
         this.words = json
@@ -77,8 +85,10 @@ export default {
       }
     },
     nextWord() {
-      this.currentWordIndex++
-      this.currentWord = this.words[this.currentWordIndex]
+      do {
+        this.currentWordIndex++
+        this.currentWord = this.words[this.currentWordIndex]
+      } while (this.exceptions.includes(this.currentWord.word))
 
       localStorage.setItem('currentWordIndex', this.currentWordIndex)
       localStorage.setItem('score', this.score)
