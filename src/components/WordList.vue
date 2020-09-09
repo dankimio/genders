@@ -13,10 +13,19 @@
       :incorrect-answer="incorrectAnswer"
     />
 
-    <div class="max-w-sm w-full flex text-gray-800">
+    <div class="max-w-sm w-full flex text-gray-800 mb-24">
       <AnswerButton label="une" @answer="feminine" />
       <div class="mx-2" />
       <AnswerButton label="un" @answer="masculine" />
+    </div>
+
+    <div
+      v-if="mistakes.length > 0"
+      class="text-gray-700 text-center max-w-sm"
+    >
+      <span v-for="mistake in mistakes" :key="mistake.word" class="mr-2">
+        {{ mistake.word }}
+      </span>
     </div>
   </div>
 </template>
@@ -34,6 +43,7 @@ export default {
       currentWord: {},
       currentWordIndex: 0,
       incorrectAnswer: false,
+      mistakes: [],
       score: 0
     }
   },
@@ -41,14 +51,12 @@ export default {
     this.currentWordIndex = parseInt(localStorage.getItem('currentWordIndex')) || 0
     this.score = parseInt(localStorage.getItem('score')) || 0
 
-    // Fetch exceptions from JSON
     fetch('/data/fr/exceptions.json')
       .then(response => response.json())
       .then(json => {
         this.exceptions = json
       })
 
-    // Fetch words from JSON
     fetch('/data/fr/words.json')
       .then(response => response.json())
       .then(json => {
@@ -71,6 +79,7 @@ export default {
         this.nextWord()
       } else {
         this.incorrectAnswer = true
+        this.addMistake()
       }
     },
     masculine() {
@@ -82,6 +91,7 @@ export default {
         this.nextWord()
       } else {
         this.incorrectAnswer = true
+        this.addMistake()
       }
     },
     nextWord() {
@@ -100,6 +110,12 @@ export default {
       if (event.key === 'ArrowRight') {
         this.masculine()
       }
+    },
+    addMistake() {
+      if (this.mistakes.find(mistake => mistake.word === this.currentWord.word)) {
+        return
+      }
+      this.mistakes.push(this.currentWord)
     },
     reset() {
       if (!confirm('Are you sure?')) {
