@@ -8,7 +8,8 @@ export default new Vuex.Store({
     currentWord: {},
     currentWordIndex: 0,
     mistakes: [],
-    score: 0
+    score: 0,
+    words: []
   },
   mutations: {
     ADD_MISTAKE(state, word) {
@@ -28,6 +29,9 @@ export default new Vuex.Store({
     },
     SET_CURRENT_WORD(state, word) {
       state.currentWord = word
+    },
+    SET_WORDS(state, words) {
+      state.words = words
     }
   },
   actions: {
@@ -40,13 +44,22 @@ export default new Vuex.Store({
     incrementScore(context) {
       context.commit('INCREMENT_SCORE')
     },
+    loadWords(context) {
+      fetch('/data/fr/words.json')
+        .then(response => response.json())
+        .then(json => {
+          context.commit('SET_WORDS', json)
+          context.dispatch('showNextWord')
+        })
+    },
     reset(context) {
       context.commit('RESET_SCORE')
       context.commit('SET_CURRENT_WORD', {})
       context.commit('RESET_CURRENT_WORD_INDEX')
     },
-    updateCurrentWord(context, word) {
-      context.commit('SET_CURRENT_WORD', word)
+    showNextWord(context) {
+      context.dispatch('incrementCurrentWordIndex')
+      context.commit('SET_CURRENT_WORD', context.state.words[context.state.currentWordIndex])
     },
     incrementCurrentWordIndex(context) {
       context.commit('INCREMENT_CURRENT_WORD_INDEX')

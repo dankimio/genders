@@ -61,12 +61,7 @@ export default {
         this.exceptions = json
       })
 
-    fetch('/data/fr/words.json')
-      .then(response => response.json())
-      .then(json => {
-        this.words = json
-        this.updateCurrentWord(this.words[this.currentWordIndex])
-      })
+    this.loadWords()
 
     window.addEventListener('keydown', this.keydown)
   },
@@ -75,10 +70,8 @@ export default {
   },
   methods: {
     ...mapActions([
-      'addMistake',
-      'incrementCurrentWordIndex',
-      'incrementScore',
-      'reset',
+      'addMistake', 'incrementCurrentWordIndex', 'incrementScore',
+      'loadWords', 'reset', 'showNextWord',
       'updateCurrentWord'
     ]),
     handleAnswer(gender) {
@@ -87,7 +80,7 @@ export default {
           this.incrementScore()
         }
         this.incorrectAnswer = false
-        this.nextWord()
+        this.showNextWord()
       } else {
         this.incorrectAnswer = true
         this.addMistake(this.currentWord)
@@ -114,7 +107,7 @@ export default {
 
       this.reset()
       this.incorrectAnswer = false
-      this.nextWord()
+      this.showNextWord()
     }
   }
 }
