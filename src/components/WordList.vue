@@ -80,7 +80,7 @@ export default {
     feminine() {
       if (this.currentWord.gender === 'f') {
         if (!this.incorrectAnswer) {
-          this.score++
+          this.incrementScore()
         }
         this.incorrectAnswer = false
         this.nextWord()
