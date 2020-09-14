@@ -38,11 +38,11 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    addMistake(context, word) {
-      if (context.state.mistakes.find(mistake => mistake.word === word.word)) {
+    addMistake(context) {
+      if (context.state.mistakes.find(mistake => mistake.word === context.state.currentWord.word)) {
         return
       }
-      context.commit('ADD_MISTAKE', word)
+      context.commit('ADD_MISTAKE', context.state.currentWord)
     },
     incrementScore(context) {
       context.commit('INCREMENT_SCORE')

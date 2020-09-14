@@ -78,7 +78,7 @@ export default {
         this.showNextWord()
       } else {
         this.incorrectAnswer = true
-        this.addMistake(this.currentWord)
+        this.addMistake()
       }
     },
     keydown(event) {
