@@ -23,8 +23,9 @@
         v-for="mistake in mistakes"
         v-show="mistakes.length > 0"
         :key="mistake.word"
-        class="mr-3"
+        class="mr-4"
       >
+        {{ mistake.gender === 'f' ? 'une' : 'un' }}
         {{ mistake.word }}
       </span>
     </div>
