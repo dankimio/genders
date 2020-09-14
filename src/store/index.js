@@ -14,6 +14,9 @@ export default new Vuex.Store({
     },
     INCREMENT_SCORE(state) {
       state.score += 1
+    },
+    RESET_SCORE(state) {
+      state.score = 0
     }
   },
   actions: {
@@ -25,6 +28,9 @@ export default new Vuex.Store({
     },
     incrementScore(context) {
       context.commit('INCREMENT_SCORE')
+    },
+    resetScore(context) {
+      context.commit('RESET_SCORE')
     }
   },
   modules: {

@@ -76,7 +76,7 @@ export default {
     window.removeEventListener('keydown', this.keydown)
   },
   methods: {
-    ...mapActions(['addMistake', 'incrementScore']),
+    ...mapActions(['addMistake', 'incrementScore', 'resetScore']),
     feminine() {
       if (this.currentWord.gender === 'f') {
         if (!this.incorrectAnswer) {
@@ -125,7 +125,7 @@ export default {
       this.currentWord = {}
       this.currentWordIndex = 0
       this.incorrectAnswer = false
-      this.score = 0
+      this.resetScore()
       this.nextWord()
     }
   }
