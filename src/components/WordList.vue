@@ -48,16 +48,14 @@ export default {
       words: [],
       currentWord: {},
       currentWordIndex: 0,
-      incorrectAnswer: false,
-      score: 0
+      incorrectAnswer: false
     }
   },
   computed: {
-    ...mapState(['mistakes'])
+    ...mapState(['mistakes', 'score'])
   },
   created () {
     this.currentWordIndex = parseInt(localStorage.getItem('currentWordIndex')) || 0
-    this.score = parseInt(localStorage.getItem('score')) || 0
 
     fetch('/data/fr/exceptions.json')
       .then(response => response.json())
@@ -78,7 +76,7 @@ export default {
     window.removeEventListener('keydown', this.keydown)
   },
   methods: {
-    ...mapActions(['addMistake']),
+    ...mapActions(['addMistake', 'incrementScore']),
     feminine() {
       if (this.currentWord.gender === 'f') {
         if (!this.incorrectAnswer) {
@@ -94,7 +92,7 @@ export default {
     masculine() {
       if (this.currentWord.gender === 'm') {
         if (!this.incorrectAnswer) {
-          this.score++
+          this.incrementScore()
         }
         this.incorrectAnswer = false
         this.nextWord()
@@ -110,7 +108,6 @@ export default {
       } while (this.exceptions.includes(this.currentWord.word))
 
       localStorage.setItem('currentWordIndex', this.currentWordIndex)
-      localStorage.setItem('score', this.score)
     },
     keydown(event) {
       if (event.key === 'ArrowLeft') {

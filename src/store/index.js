@@ -5,11 +5,15 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    mistakes: []
+    mistakes: [],
+    score: 0
   },
   mutations: {
     ADD_MISTAKE(state, word) {
       state.mistakes.push(word)
+    },
+    INCREMENT_SCORE(state) {
+      state.score += 1
     }
   },
   actions: {
@@ -18,6 +22,9 @@ export default new Vuex.Store({
         return
       }
       context.commit('ADD_MISTAKE', word)
+    },
+    incrementScore(context) {
+      context.commit('INCREMENT_SCORE')
     }
   },
   modules: {
