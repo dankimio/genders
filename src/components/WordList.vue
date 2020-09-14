@@ -4,7 +4,7 @@
       Score: {{ score }}
 
       <small class="text-sm ml-2">
-        <a href="#" class="text-gray-700" @click="reset">Reset</a>
+        <a href="#" class="text-gray-700" @click="handleReset">Reset</a>
       </small>
     </h2>
 
@@ -78,7 +78,7 @@ export default {
       'addMistake',
       'incrementCurrentWordIndex',
       'incrementScore',
-      'resetScore',
+      'reset',
       'updateCurrentWord'
     ]),
     handleAnswer(gender) {
@@ -107,15 +107,13 @@ export default {
         this.handleAnswer('m')
       }
     },
-    reset() {
+    handleReset() {
       if (!confirm('Are you sure?')) {
         return
       }
 
-      this.currentWord = {}
-      this.currentWordIndex = 0
+      this.reset()
       this.incorrectAnswer = false
-      this.resetScore()
       this.nextWord()
     }
   }

@@ -23,6 +23,9 @@ export default new Vuex.Store({
     RESET_SCORE(state) {
       state.score = 0
     },
+    RESET_CURRENT_WORD_INDEX(state) {
+      state.currentWordIndex = 0
+    },
     SET_CURRENT_WORD(state, word) {
       state.currentWord = word
     }
@@ -37,8 +40,10 @@ export default new Vuex.Store({
     incrementScore(context) {
       context.commit('INCREMENT_SCORE')
     },
-    resetScore(context) {
+    reset(context) {
       context.commit('RESET_SCORE')
+      context.commit('SET_CURRENT_WORD', {})
+      context.commit('RESET_CURRENT_WORD_INDEX')
     },
     updateCurrentWord(context, word) {
       context.commit('SET_CURRENT_WORD', word)
