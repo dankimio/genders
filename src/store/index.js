@@ -30,6 +30,9 @@ export default new Vuex.Store({
     SET_CURRENT_WORD(state, word) {
       state.currentWord = word
     },
+    SET_EXCEPTIONS(state, exceptions) {
+      state.exceptions = exceptions
+    },
     SET_WORDS(state, words) {
       state.words = words
     }
@@ -43,6 +46,13 @@ export default new Vuex.Store({
     },
     incrementScore(context) {
       context.commit('INCREMENT_SCORE')
+    },
+    loadExceptions(context) {
+      fetch('/data/fr/exceptions.json')
+        .then(response => response.json())
+        .then(json => {
+          context.commit('SET_EXCEPTIONS', json)
+        })
     },
     loadWords(context) {
       fetch('/data/fr/words.json')
@@ -58,8 +68,10 @@ export default new Vuex.Store({
       context.commit('RESET_CURRENT_WORD_INDEX')
     },
     showNextWord(context) {
-      context.dispatch('incrementCurrentWordIndex')
-      context.commit('SET_CURRENT_WORD', context.state.words[context.state.currentWordIndex])
+      do {
+        context.dispatch('incrementCurrentWordIndex')
+        context.commit('SET_CURRENT_WORD', context.state.words[context.state.currentWordIndex])
+      } while (context.state.exceptions.includes(context.state.currentWord.word))
     },
     incrementCurrentWordIndex(context) {
       context.commit('INCREMENT_CURRENT_WORD_INDEX')

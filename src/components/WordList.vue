@@ -55,12 +55,7 @@ export default {
     )
   },
   created () {
-    fetch('/data/fr/exceptions.json')
-      .then(response => response.json())
-      .then(json => {
-        this.exceptions = json
-      })
-
+    this.loadExceptions()
     this.loadWords()
 
     window.addEventListener('keydown', this.keydown)
@@ -71,8 +66,8 @@ export default {
   methods: {
     ...mapActions([
       'addMistake', 'incrementCurrentWordIndex', 'incrementScore',
-      'loadWords', 'reset', 'showNextWord',
-      'updateCurrentWord'
+      'loadExceptions', 'loadWords', 'reset',
+      'showNextWord', 'updateCurrentWord'
     ]),
     handleAnswer(gender) {
       if (this.currentWord.gender === gender) {
@@ -85,12 +80,6 @@ export default {
         this.incorrectAnswer = true
         this.addMistake(this.currentWord)
       }
-    },
-    nextWord() {
-      do {
-        this.incrementCurrentWordIndex()
-        this.updateCurrentWord(this.words[this.currentWordIndex])
-      } while (this.exceptions.includes(this.currentWord.word))
     },
     keydown(event) {
       if (event.key === 'ArrowLeft') {
