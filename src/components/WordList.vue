@@ -14,9 +14,9 @@
     />
 
     <div class="max-w-sm w-full flex text-gray-800 mb-24">
-      <AnswerButton label="une" @answer="feminine" />
+      <AnswerButton label="une" @answer="handleAnswer('f')" />
       <div class="mx-2" />
-      <AnswerButton label="un" @answer="masculine" />
+      <AnswerButton label="un" @answer="handleAnswer('m')" />
     </div>
 
     <div
@@ -77,20 +77,8 @@ export default {
   },
   methods: {
     ...mapActions(['addMistake', 'incrementScore', 'resetScore']),
-    feminine() {
-      if (this.currentWord.gender === 'f') {
-        if (!this.incorrectAnswer) {
-          this.incrementScore()
-        }
-        this.incorrectAnswer = false
-        this.nextWord()
-      } else {
-        this.incorrectAnswer = true
-        this.addMistake(this.currentWord)
-      }
-    },
-    masculine() {
-      if (this.currentWord.gender === 'm') {
+    handleAnswer(gender) {
+      if (this.currentWord.gender === gender) {
         if (!this.incorrectAnswer) {
           this.incrementScore()
         }
