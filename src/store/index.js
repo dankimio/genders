@@ -5,6 +5,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    currentWord: {},
+    currentWordIndex: 0,
     mistakes: [],
     score: 0
   },
@@ -12,11 +14,17 @@ export default new Vuex.Store({
     ADD_MISTAKE(state, word) {
       state.mistakes.push(word)
     },
+    INCREMENT_CURRENT_WORD_INDEX(state) {
+      state.currentWordIndex += 1
+    },
     INCREMENT_SCORE(state) {
       state.score += 1
     },
     RESET_SCORE(state) {
       state.score = 0
+    },
+    SET_CURRENT_WORD(state, word) {
+      state.currentWord = word
     }
   },
   actions: {
@@ -31,6 +39,12 @@ export default new Vuex.Store({
     },
     resetScore(context) {
       context.commit('RESET_SCORE')
+    },
+    updateCurrentWord(context, word) {
+      context.commit('SET_CURRENT_WORD', word)
+    },
+    incrementCurrentWordIndex(context) {
+      context.commit('INCREMENT_CURRENT_WORD_INDEX')
     }
   },
   modules: {

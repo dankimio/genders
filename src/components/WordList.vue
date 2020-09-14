@@ -46,17 +46,15 @@ export default {
     return {
       exceptions: [],
       words: [],
-      currentWord: {},
-      currentWordIndex: 0,
       incorrectAnswer: false
     }
   },
   computed: {
-    ...mapState(['mistakes', 'score'])
+    ...mapState(
+      ['currentWord', 'currentWordIndex', 'mistakes', 'score']
+    )
   },
   created () {
-    this.currentWordIndex = parseInt(localStorage.getItem('currentWordIndex')) || 0
-
     fetch('/data/fr/exceptions.json')
       .then(response => response.json())
       .then(json => {
@@ -67,7 +65,7 @@ export default {
       .then(response => response.json())
       .then(json => {
         this.words = json
-        this.currentWord = this.words[this.currentWordIndex]
+        this.updateCurrentWord(this.words[this.currentWordIndex])
       })
 
     window.addEventListener('keydown', this.keydown)
@@ -76,7 +74,13 @@ export default {
     window.removeEventListener('keydown', this.keydown)
   },
   methods: {
-    ...mapActions(['addMistake', 'incrementScore', 'resetScore']),
+    ...mapActions([
+      'addMistake',
+      'incrementCurrentWordIndex',
+      'incrementScore',
+      'resetScore',
+      'updateCurrentWord'
+    ]),
     handleAnswer(gender) {
       if (this.currentWord.gender === gender) {
         if (!this.incorrectAnswer) {
@@ -91,11 +95,9 @@ export default {
     },
     nextWord() {
       do {
-        this.currentWordIndex++
-        this.currentWord = this.words[this.currentWordIndex]
+        this.incrementCurrentWordIndex()
+        this.updateCurrentWord(this.words[this.currentWordIndex])
       } while (this.exceptions.includes(this.currentWord.word))
-
-      localStorage.setItem('currentWordIndex', this.currentWordIndex)
     },
     keydown(event) {
       if (event.key === 'ArrowLeft') {
