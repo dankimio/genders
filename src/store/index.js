@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import createPersistedState from 'vuex-persistedstate'
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -52,6 +54,10 @@ export default new Vuex.Store({
       context.commit('INCREMENT_SCORE')
     },
     loadExceptions(context) {
+      if (context.state.exceptions.length) {
+        return
+      }
+
       fetch('/data/fr/exceptions.json')
         .then(response => response.json())
         .then(json => {
@@ -59,6 +65,10 @@ export default new Vuex.Store({
         })
     },
     loadWords(context) {
+      if (context.state.words.length) {
+        return
+      }
+
       fetch('/data/fr/words.json')
         .then(response => response.json())
         .then(json => {
@@ -86,5 +96,6 @@ export default new Vuex.Store({
     }
   },
   modules: {
-  }
+  },
+  plugins: [createPersistedState()]
 })
