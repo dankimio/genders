@@ -10,19 +10,18 @@
       {{ article }}
     </span>
 
-    <span class="">{{ word.word }}</span>
+    <span class="">{{ currentWord.word }}</span>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
-  props: {
-    word: { type: Object, required: true },
-    incorrectAnswer: { type: Boolean, required: true }
-  },
   computed: {
+    ...mapState(['currentWord', 'incorrectAnswer']),
     article() {
-      return this.word.gender === 'f' ? 'une' : 'un'
+      return this.currentWord.gender === 'f' ? 'une' : 'un'
     }
   }
 }

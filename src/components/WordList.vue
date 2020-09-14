@@ -8,10 +8,7 @@
       </small>
     </h2>
 
-    <WordCard
-      :word="currentWord"
-      :incorrect-answer="incorrectAnswer"
-    />
+    <WordCard />
 
     <div class="max-w-sm w-full flex text-gray-800 mb-24">
       <AnswerButton label="une" @answer="handleAnswer('f')" />
@@ -67,17 +64,17 @@ export default {
     ...mapActions([
       'addMistake', 'incrementCurrentWordIndex', 'incrementScore',
       'loadExceptions', 'loadWords', 'reset',
-      'showNextWord', 'updateCurrentWord'
+      'setIncorrectAnswer', 'showNextWord', 'updateCurrentWord'
     ]),
     handleAnswer(gender) {
       if (this.currentWord.gender === gender) {
         if (!this.incorrectAnswer) {
           this.incrementScore()
         }
-        this.incorrectAnswer = false
+        this.setIncorrectAnswer(false)
         this.showNextWord()
       } else {
-        this.incorrectAnswer = true
+        this.setIncorrectAnswer()
         this.addMistake()
       }
     },
@@ -95,12 +92,8 @@ export default {
       }
 
       this.reset()
-      this.incorrectAnswer = false
       this.showNextWord()
     }
   }
 }
 </script>
-
-<style>
-</style>

@@ -7,6 +7,7 @@ export default new Vuex.Store({
   state: {
     currentWord: {},
     currentWordIndex: 0,
+    incorrectAnswer: false,
     mistakes: [],
     score: 0,
     words: []
@@ -35,6 +36,9 @@ export default new Vuex.Store({
     },
     SET_WORDS(state, words) {
       state.words = words
+    },
+    SET_INCORRECT_ANSWER(state, incorrectAnswer = true) {
+      state.incorrectAnswer = incorrectAnswer
     }
   },
   actions: {
@@ -66,10 +70,14 @@ export default new Vuex.Store({
       context.commit('RESET_SCORE')
       context.commit('SET_CURRENT_WORD', {})
       context.commit('RESET_CURRENT_WORD_INDEX')
+      context.commit('SET_INCORRECT_ANSWER', false)
+    },
+    setIncorrectAnswer(context, incorrectAnswer = true) {
+      context.commit('SET_INCORRECT_ANSWER', incorrectAnswer)
     },
     showNextWord(context) {
       do {
-        context.dispatch('incrementCurrentWordIndex')
+        context.commit('INCREMENT_CURRENT_WORD_INDEX')
         context.commit('SET_CURRENT_WORD', context.state.words[context.state.currentWordIndex])
       } while (context.state.exceptions.includes(context.state.currentWord.word))
     },
