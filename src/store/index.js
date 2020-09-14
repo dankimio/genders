@@ -24,6 +24,9 @@ export default new Vuex.Store({
     INCREMENT_SCORE(state) {
       state.score += 1
     },
+    RESET_MISTAKES(state) {
+      state.mistakes = []
+    },
     RESET_SCORE(state) {
       state.score = 0
     },
@@ -80,6 +83,7 @@ export default new Vuex.Store({
       context.commit('RESET_SCORE')
       context.commit('SET_CURRENT_WORD', {})
       context.commit('RESET_CURRENT_WORD_INDEX')
+      context.commit('RESET_MISTAKES')
       context.commit('SET_INCORRECT_ANSWER', false)
     },
     setIncorrectAnswer(context, incorrectAnswer = true) {
