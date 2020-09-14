@@ -20,10 +20,14 @@
     </div>
 
     <div
-      v-if="mistakes.length > 0"
-      class="text-gray-700 text-center max-w-sm"
+      class="text-gray-700 text-center max-w-sm h-8"
     >
-      <span v-for="mistake in mistakes" :key="mistake.word" class="mr-2">
+      <span
+        v-for="mistake in mistakes"
+        v-show="mistakes.length > 0"
+        :key="mistake.word"
+        class="mr-3"
+      >
         {{ mistake.word }}
       </span>
     </div>
