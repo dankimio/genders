@@ -9,6 +9,7 @@ export default new Vuex.Store({
   state: {
     currentWord: {},
     currentWordIndex: 0,
+    exceptions: [],
     incorrectAnswer: false,
     mistakes: [],
     score: 0,
