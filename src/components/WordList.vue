@@ -38,6 +38,8 @@
 import WordCard from './WordCard'
 import AnswerButton from './AnswerButton'
 
+import { mapActions, mapState } from 'vuex'
+
 export default {
   components: { WordCard, AnswerButton },
   data () {
@@ -47,9 +49,11 @@ export default {
       currentWord: {},
       currentWordIndex: 0,
       incorrectAnswer: false,
-      mistakes: [],
       score: 0
     }
+  },
+  computed: {
+    ...mapState(['mistakes'])
   },
   created () {
     this.currentWordIndex = parseInt(localStorage.getItem('currentWordIndex')) || 0
@@ -74,6 +78,7 @@ export default {
     window.removeEventListener('keydown', this.keydown)
   },
   methods: {
+    ...mapActions(['addMistake']),
     feminine() {
       if (this.currentWord.gender === 'f') {
         if (!this.incorrectAnswer) {
@@ -83,7 +88,7 @@ export default {
         this.nextWord()
       } else {
         this.incorrectAnswer = true
-        this.addMistake()
+        this.addMistake(this.currentWord)
       }
     },
     masculine() {
@@ -95,7 +100,7 @@ export default {
         this.nextWord()
       } else {
         this.incorrectAnswer = true
-        this.addMistake()
+        this.addMistake(this.currentWord)
       }
     },
     nextWord() {
@@ -114,12 +119,6 @@ export default {
       if (event.key === 'ArrowRight') {
         this.masculine()
       }
-    },
-    addMistake() {
-      if (this.mistakes.find(mistake => mistake.word === this.currentWord.word)) {
-        return
-      }
-      this.mistakes.push(this.currentWord)
     },
     reset() {
       if (!confirm('Are you sure?')) {
