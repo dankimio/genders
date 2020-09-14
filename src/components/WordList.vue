@@ -101,10 +101,10 @@ export default {
     },
     keydown(event) {
       if (event.key === 'ArrowLeft') {
-        this.feminine()
+        this.handleAnswer('f')
       }
       if (event.key === 'ArrowRight') {
-        this.masculine()
+        this.handleAnswer('m')
       }
     },
     reset() {
