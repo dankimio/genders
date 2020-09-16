@@ -2,16 +2,29 @@
   <div id="app" class="min-h-screen flex flex-col bg-gray-100 font-serif">
     <router-view class="container flex-1 flex flex-col mx-auto px-8 pt-6" />
 
-    <nav class="text-center py-4">
+    <nav class="text-center text-gray-800 py-4 mb-2">
       <router-link to="/rules" class="mr-4">
         Rules
       </router-link>
-      <router-link to="/my-words" class="mr-4">
+      <router-link to="/my-words">
         My words
       </router-link>
+      <sup v-if="mistakes.length > 0" class="px-1 bg-gray-600 rounded-full text-white text-sm">
+        {{ mistakes.length }}
+      </sup>
     </nav>
   </div>
 </template>
+
+<script>
+import { mapState } from 'vuex'
+
+export default {
+  computed: {
+    ...mapState(['mistakes'])
+  }
+}
+</script>
 
 <style src="./assets/tailwind.css">
 </style>
@@ -23,5 +36,9 @@
 
 a {
   @apply .underline;
+}
+
+a sup {
+  @apply .no-underline;
 }
 </style>
