@@ -4,7 +4,7 @@
       ← Go back
     </router-link>
 
-    <h1 class="text-4xl font-semibold mb-4">
+    <h1 class="text-4xl font-semibold mb-2">
       My words
     </h1>
 
