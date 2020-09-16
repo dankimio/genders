@@ -6,6 +6,9 @@
       <router-link to="/rules" class="mr-4">
         Rules
       </router-link>
+      <router-link to="/my-words" class="mr-4">
+        My words
+      </router-link>
     </nav>
   </div>
 </template>
