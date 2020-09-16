@@ -20,6 +20,9 @@
 import { mapState } from 'vuex'
 
 export default {
+  metaInfo: {
+    title: 'French Genders Game'
+  },
   computed: {
     ...mapState(['mistakes'])
   }

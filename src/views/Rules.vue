@@ -300,6 +300,14 @@
   </div>
 </template>
 
+<script>
+export default {
+  metaInfo: {
+    title: 'French gender rules'
+  }
+}
+</script>
+
 <style scoped>
 th {
   @apply .border-b .pb-1

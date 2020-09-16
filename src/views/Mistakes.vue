@@ -25,6 +25,9 @@
 import { mapState } from 'vuex'
 
 export default {
+  metaInfo: {
+    title: 'My words'
+  },
   computed: {
     ...mapState(['mistakes'])
   }
