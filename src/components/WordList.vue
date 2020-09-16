@@ -10,24 +10,10 @@
 
     <WordCard />
 
-    <div class="max-w-sm w-full flex text-gray-800 mb-24">
+    <div class="max-w-sm w-full flex text-gray-800">
       <AnswerButton label="une" @answer="handleAnswer('f')" />
       <div class="mx-2" />
       <AnswerButton label="un" @answer="handleAnswer('m')" />
-    </div>
-
-    <div
-      class="text-gray-700 text-center max-w-sm h-8"
-    >
-      <span
-        v-for="mistake in mistakes"
-        v-show="mistakes.length > 0"
-        :key="mistake.word"
-        class="mr-4"
-      >
-        {{ mistake.gender === 'f' ? 'une' : 'un' }}
-        {{ mistake.word }}
-      </span>
     </div>
   </div>
 </template>
@@ -49,7 +35,7 @@ export default {
   },
   computed: {
     ...mapState(
-      ['currentWord', 'currentWordIndex', 'mistakes', 'score']
+      ['currentWord', 'currentWordIndex', 'score']
     )
   },
   created () {
