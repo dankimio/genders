@@ -77,6 +77,7 @@ export default new Vuex.Store({
         .then(response => response.json())
         .then(json => {
           context.commit('SET_WORDS', json)
+          context.dispatch('shuffleWords')
           context.dispatch('showNextWord')
         })
     },
@@ -86,6 +87,8 @@ export default new Vuex.Store({
       context.commit('RESET_CURRENT_WORD_INDEX')
       context.commit('RESET_MISTAKES')
       context.commit('SET_INCORRECT_ANSWER', false)
+
+      context.dispatch('shuffleWords')
     },
     setIncorrectAnswer(context, incorrectAnswer = true) {
       context.commit('SET_INCORRECT_ANSWER', incorrectAnswer)
@@ -95,6 +98,9 @@ export default new Vuex.Store({
         context.commit('INCREMENT_CURRENT_WORD_INDEX')
         context.commit('SET_CURRENT_WORD', context.state.words[context.state.currentWordIndex])
       } while (context.state.exceptions.includes(context.state.currentWord.word))
+    },
+    shuffleWords(context) {
+      context.commit('SET_WORDS', context.state.words.sort(() => Math.random() - 0.5))
     },
     incrementCurrentWordIndex(context) {
       context.commit('INCREMENT_CURRENT_WORD_INDEX')
