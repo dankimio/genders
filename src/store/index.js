@@ -9,7 +9,6 @@ export default new Vuex.Store({
   state: {
     currentWord: {},
     currentWordIndex: 0,
-    exceptions: [],
     incorrectAnswer: false,
     mistakes: [],
     score: 0,
@@ -37,9 +36,6 @@ export default new Vuex.Store({
     SET_CURRENT_WORD(state, word) {
       state.currentWord = word
     },
-    SET_EXCEPTIONS(state, exceptions) {
-      state.exceptions = exceptions
-    },
     SET_WORDS(state, words) {
       state.words = words
     },
@@ -56,17 +52,6 @@ export default new Vuex.Store({
     },
     incrementScore(context) {
       context.commit('INCREMENT_SCORE')
-    },
-    loadExceptions(context) {
-      if (context.state.exceptions.length) {
-        return
-      }
-
-      fetch('/data/fr/exceptions.json')
-        .then(response => response.json())
-        .then(json => {
-          context.commit('SET_EXCEPTIONS', json)
-        })
     },
     loadWords(context) {
       if (context.state.words.length) {
@@ -94,10 +79,8 @@ export default new Vuex.Store({
       context.commit('SET_INCORRECT_ANSWER', incorrectAnswer)
     },
     showNextWord(context) {
-      do {
-        context.commit('INCREMENT_CURRENT_WORD_INDEX')
-        context.commit('SET_CURRENT_WORD', context.state.words[context.state.currentWordIndex])
-      } while (context.state.exceptions.includes(context.state.currentWord.word))
+      context.commit('INCREMENT_CURRENT_WORD_INDEX')
+      context.commit('SET_CURRENT_WORD', context.state.words[context.state.currentWordIndex])
     },
     shuffleWords(context) {
       context.commit('SET_WORDS', context.state.words.sort(() => Math.random() - 0.5))

@@ -28,7 +28,6 @@ export default {
   components: { WordCard, AnswerButton },
   data () {
     return {
-      exceptions: [],
       words: [],
       incorrectAnswer: false
     }
@@ -39,7 +38,6 @@ export default {
     )
   },
   created () {
-    this.loadExceptions()
     this.loadWords()
 
     window.addEventListener('keydown', this.keydown)
@@ -50,8 +48,8 @@ export default {
   methods: {
     ...mapActions([
       'addMistake', 'incrementCurrentWordIndex', 'incrementScore',
-      'loadExceptions', 'loadWords', 'reset',
-      'setIncorrectAnswer', 'showNextWord', 'updateCurrentWord'
+      'loadWords', 'reset', 'setIncorrectAnswer',
+      'showNextWord', 'updateCurrentWord'
     ]),
     handleAnswer(gender) {
       if (this.currentWord.gender === gender) {
