@@ -27,10 +27,7 @@ import { mapActions, mapState } from 'vuex'
 export default {
   components: { WordCard, AnswerButton },
   data () {
-    return {
-      words: [],
-      incorrectAnswer: false
-    }
+    return {}
   },
   computed: {
     ...mapState(
