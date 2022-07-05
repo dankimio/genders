@@ -1,6 +1,8 @@
 # Genders
 
+A game written in Vue to help you memorise French genders.
 
+![Screenshot](./screenshot.png)
 
 ## Project setup
 ```
