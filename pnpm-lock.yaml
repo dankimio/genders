@@ -11,7 +11,7 @@ specifiers:
   vue-meta: ^2.4.0
   vue-router: ^3.6.5
   vue-template-compiler: ^2.7.14
-  vuex: ^3.6.2
+  vuex: ^4.1.0
 
 dependencies:
   core-js: 3.26.1
@@ -19,7 +19,7 @@ dependencies:
   vue: 2.7.14
   vue-meta: 2.4.0
   vue-router: 3.6.5_vue@2.7.14
-  vuex: 3.6.2_vue@2.7.14
+  vuex: 4.1.0_vue@2.7.14
 
 devDependencies:
   '@vue/cli-plugin-babel': 5.0.8_2vo6k7iwn5qyshgggzrcvv6rba
@@ -1965,6 +1965,10 @@ packages:
       - walrus
       - whiskers
     dev: true
+
+  /@vue/devtools-api/6.4.5:
+    resolution: {integrity: sha512-JD5fcdIuFxU4fQyXUu3w2KpAJHzTVdN+p4iOX2lMWSHMOoQdMAcpFLZzm9Z/2nmsoZ1a96QEhZ26e50xLBsgOQ==}
+    dev: false
 
   /@vue/web-component-wrapper/1.3.0:
     resolution: {integrity: sha512-Iu8Tbg3f+emIIMmI2ycSI8QcEuAUgPTgHwesDU1eKMLE4YC/c/sFbGc70QgMq31ijRftV0R7vCm9co6rldCeOA==}
@@ -6218,11 +6222,12 @@ packages:
       '@vue/compiler-sfc': 2.7.14
       csstype: 3.1.1
 
-  /vuex/3.6.2_vue@2.7.14:
-    resolution: {integrity: sha512-ETW44IqCgBpVomy520DT5jf8n0zoCac+sxWnn+hMe/CzaSejb/eVw2YToiXYX+Ex/AuHHia28vWTq4goAexFbw==}
+  /vuex/4.1.0_vue@2.7.14:
+    resolution: {integrity: sha512-hmV6UerDrPcgbSy9ORAtNXDr9M4wlNP4pEFKye4ujJF8oqgFFuxDCdOLS3eNoRTtq5O3hoBDh9Doj1bQMYHRbQ==}
     peerDependencies:
-      vue: ^2.0.0
+      vue: ^3.2.0
     dependencies:
+      '@vue/devtools-api': 6.4.5
       vue: 2.7.14
     dev: false
 
