@@ -1,3 +1,11 @@
+<script setup>
+import { useHead } from '@vueuse/head'
+
+useHead({
+  title: 'My words'
+})
+</script>
+
 <template>
   <div>
     <router-link to="/" class="block mb-2">
@@ -27,9 +35,6 @@ import { mapState } from 'pinia'
 import { useDefaultStore } from '../store'
 
 export default {
-  // metaInfo: {
-  //   title: 'My words'
-  // },
   computed: {
     ...mapState(useDefaultStore, ['mistakes'])
   }
