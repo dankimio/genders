@@ -24,12 +24,14 @@
 <script>
 import { mapState } from 'pinia'
 
+import { useDefaultStore } from '../store'
+
 export default {
   // metaInfo: {
   //   title: 'My words'
   // },
   computed: {
-    ...mapState(['mistakes'])
+    ...mapState(useDefaultStore, ['mistakes'])
   }
 }
 </script>

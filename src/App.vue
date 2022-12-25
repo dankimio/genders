@@ -19,12 +19,14 @@
 <script>
 import { mapState } from 'pinia'
 
+import { useDefaultStore } from './store'
+
 export default {
   // metaInfo: {
   //   title: 'French Genders Game'
   // },
   computed: {
-    ...mapState(['mistakes'])
+    ...mapState(useDefaultStore, ['mistakes'])
   }
 }
 </script>

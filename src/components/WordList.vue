@@ -23,6 +23,7 @@ import WordCard from './WordCard.vue'
 import AnswerButton from './AnswerButton.vue'
 
 import { mapActions, mapState } from 'pinia'
+import { useDefaultStore } from '../store'
 
 export default {
   components: { WordCard, AnswerButton },
@@ -31,6 +32,7 @@ export default {
   },
   computed: {
     ...mapState(
+      useDefaultStore,
       ['currentWord', 'currentWordIndex', 'score']
     )
   },
@@ -43,11 +45,14 @@ export default {
     window.removeEventListener('keydown', this.keydown)
   },
   methods: {
-    ...mapActions([
-      'addMistake', 'incrementCurrentWordIndex', 'incrementScore',
-      'loadWords', 'reset', 'setIncorrectAnswer',
-      'showNextWord', 'updateCurrentWord'
-    ]),
+    ...mapActions(
+      useDefaultStore,
+      [
+        'addMistake', 'incrementCurrentWordIndex', 'incrementScore',
+        'loadWords', 'reset', 'setIncorrectAnswer',
+        'showNextWord', 'updateCurrentWord'
+      ]
+    ),
     handleAnswer(gender) {
       if (this.currentWord.gender === gender) {
         if (!this.incorrectAnswer) {
