@@ -302,9 +302,9 @@
 
 <script>
 export default {
-  metaInfo: {
-    title: 'French gender rules'
-  }
+  // metaInfo: {
+  //   title: 'French gender rules'
+  // }
 }
 </script>
 
