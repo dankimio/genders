@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import WordCard from './WordCard'
-import AnswerButton from './AnswerButton'
+import WordCard from './WordCard.vue'
+import AnswerButton from './AnswerButton.vue'
 
 import { mapActions, mapState } from 'pinia'
 
