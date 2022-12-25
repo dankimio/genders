@@ -56,5 +56,6 @@ export const useDefaultStore = defineStore('default', {
     incrementCurrentWordIndex() {
       this.currentWordIndex += 1
     }
-  }
+  },
+  persist: true
 })
