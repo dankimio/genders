@@ -1,7 +1,8 @@
-import { createRouter } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 
 const router = createRouter({
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
@@ -14,7 +15,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ '../views/Rules.vue')
+      component: () => import('../views/Rules.vue')
     },
     {
       path: '/my-words',
@@ -22,7 +23,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "mistakes" */ '../views/Mistakes.vue')
+      component: () => import('../views/Mistakes.vue')
     }
   ]
 })
