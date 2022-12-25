@@ -12,7 +12,6 @@ specifiers:
   vue-router: ^3.6.5
   vue-template-compiler: ^2.7.14
   vuex: ^3.6.2
-  vuex-persistedstate: ^3.2.1
 
 dependencies:
   core-js: 3.26.1
@@ -21,7 +20,6 @@ dependencies:
   vue-meta: 2.4.0
   vue-router: 3.6.5_vue@2.7.14
   vuex: 3.6.2_vue@2.7.14
-  vuex-persistedstate: 3.2.1_vue@2.7.14+vuex@3.6.2
 
 devDependencies:
   '@vue/cli-plugin-babel': 5.0.8_2vo6k7iwn5qyshgggzrcvv6rba
@@ -5608,11 +5606,6 @@ packages:
     resolution: {integrity: sha512-8o/QEhSSRb1a5i7TFR0iM4G16Z0vYB2OQVs4G3aAFXjn3T6yEx8AZxy1PgDF7I00LZHYA3WxaSYIf5e5sAX8Rw==}
     dev: true
 
-  /shvl/2.0.3:
-    resolution: {integrity: sha512-V7C6S9Hlol6SzOJPnQ7qzOVEWUQImt3BNmmzh40wObhla3XOYMe4gGiYzLrJd5TFa+cI2f9LKIRJTTKZSTbWgw==}
-    deprecated: older versions vulnerable to prototype pollution
-    dev: false
-
   /side-channel/1.0.4:
     resolution: {integrity: sha512-q5XPytqFEIKHkGdiMIrY10mvLRvnQh42/+GoBlFW3b2LXLE2xxJpZFdm94we0BaoV3RwJyGqg5wS7epxTv0Zvw==}
     dependencies:
@@ -6224,19 +6217,6 @@ packages:
     dependencies:
       '@vue/compiler-sfc': 2.7.14
       csstype: 3.1.1
-
-  /vuex-persistedstate/3.2.1_vue@2.7.14+vuex@3.6.2:
-    resolution: {integrity: sha512-0OnHKGsCHJcvbEraaGZvuvX4aybM2oQWYRuZmIQB7zUjVM6tP+Hg+oXLrq9r6elT4she9SGtEbGE1L2+XdFgUw==}
-    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
-    peerDependencies:
-      vue: ^2.0.0
-      vuex: ^2.0.0 || ^3.0.0
-    dependencies:
-      deepmerge: 4.2.2
-      shvl: 2.0.3
-      vue: 2.7.14
-      vuex: 3.6.2_vue@2.7.14
-    dev: false
 
   /vuex/3.6.2_vue@2.7.14:
     resolution: {integrity: sha512-ETW44IqCgBpVomy520DT5jf8n0zoCac+sxWnn+hMe/CzaSejb/eVw2YToiXYX+Ex/AuHHia28vWTq4goAexFbw==}
