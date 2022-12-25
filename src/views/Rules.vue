@@ -315,10 +315,10 @@ export default {
 
 <style scoped>
 th {
-  @apply .border-b .pb-1
+  @apply border-b pb-1
 }
 th, td {
-  @apply .pr-2;
+  @apply pr-2;
   vertical-align: top;
 }
 tr td:nth-child(2) {
