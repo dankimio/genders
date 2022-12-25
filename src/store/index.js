@@ -11,35 +11,6 @@ export const store = defineStore('default', {
       words: []
     }
   },
-  mutations: {
-    ADD_MISTAKE(word) {
-      this.mistakes.push(word)
-    },
-    INCREMENT_CURRENT_WORD_INDEX() {
-      this.currentWordIndex += 1
-    },
-    INCREMENT_SCORE() {
-      this.score += 1
-    },
-    RESET_MISTAKES() {
-      this.mistakes = []
-    },
-    RESET_SCORE() {
-      this.score = 0
-    },
-    RESET_CURRENT_WORD_INDEX() {
-      this.currentWordIndex = 0
-    },
-    SET_CURRENT_WORD(word) {
-      this.currentWord = word
-    },
-    SET_WORDS(words) {
-      this.words = words
-    },
-    SET_INCORRECT_ANSWER(incorrectAnswer = true) {
-      this.incorrectAnswer = incorrectAnswer
-    }
-  },
   actions: {
     addMistake() {
       if (this.mistakes.find(mistake => mistake.word === this.currentWord.word)) {
