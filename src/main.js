@@ -1,12 +1,17 @@
-import Vue from 'vue'
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+import { createHead } from "@vueuse/head"
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
+
 import App from './App.vue'
 import router from './router'
-import store from './store'
 
-Vue.config.productionTip = false
+const app = createApp(App)
+const pinia = createPinia()
+pinia.use(piniaPluginPersistedstate)
+const head = createHead()
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+app.use(pinia)
+app.use(head)
+app.use(router)
+app.mount('#app')

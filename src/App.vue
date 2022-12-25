@@ -17,14 +17,16 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from 'pinia'
+
+import { useDefaultStore } from './store'
 
 export default {
-  metaInfo: {
-    title: 'French Genders Game'
-  },
+  // metaInfo: {
+  //   title: 'French Genders Game'
+  // },
   computed: {
-    ...mapState(['mistakes'])
+    ...mapState(useDefaultStore, ['mistakes'])
   }
 }
 </script>

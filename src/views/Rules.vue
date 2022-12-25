@@ -1,3 +1,11 @@
+<script setup>
+import { useHead } from '@vueuse/head'
+
+useHead({
+  title: 'Rules'
+})
+</script>
+
 <template>
   <div class="text-gray-900">
     <router-link to="/" class="block mb-2">
@@ -302,9 +310,6 @@
 
 <script>
 export default {
-  metaInfo: {
-    title: 'French gender rules'
-  }
 }
 </script>
 

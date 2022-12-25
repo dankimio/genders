@@ -15,11 +15,13 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from 'pinia'
+
+import { useDefaultStore } from '../store'
 
 export default {
   computed: {
-    ...mapState(['currentWord', 'incorrectAnswer']),
+    ...mapState(useDefaultStore, ['currentWord', 'incorrectAnswer']),
     article() {
       return this.currentWord.gender === 'f' ? 'une' : 'un'
     }
