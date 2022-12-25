@@ -4,17 +4,20 @@ This project is a game written in Vue that helps learners memorize the genders o
 
 ![Screenshot](./screenshot.png)
 
-## Project setup
-```
-yarn install
+## Project Setup
+
+```sh
+pnpm install
 ```
 
-### Compiles and hot-reloads for development
-```
-yarn serve
+### Compile and Hot-Reload for Development
+
+```sh
+pnpm run dev
 ```
 
-### Compiles and minifies for production
-```
-yarn build
+### Compile and Minify for Production
+
+```sh
+pnpm run build
 ```
