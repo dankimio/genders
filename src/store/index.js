@@ -1,13 +1,15 @@
 import { defineStore } from 'pinia'
 
-export const store = defineStore({
-  state: {
-    currentWord: {},
-    currentWordIndex: 0,
-    incorrectAnswer: false,
-    mistakes: [],
-    score: 0,
-    words: []
+export const store = defineStore('default', {
+  state: () => {
+    return {
+      currentWord: {},
+      currentWordIndex: 0,
+      incorrectAnswer: false,
+      mistakes: [],
+      score: 0,
+      words: []
+    }
   },
   mutations: {
     ADD_MISTAKE(state, word) {
