@@ -40,10 +40,10 @@ export default {
 }
 
 a {
-  @apply .underline;
+  @apply underline;
 }
 
 a sup {
-  @apply .no-underline;
+  @apply no-underline;
 }
 </style>
