@@ -20,9 +20,9 @@
 import { mapState } from 'pinia'
 
 export default {
-  metaInfo: {
-    title: 'French Genders Game'
-  },
+  // metaInfo: {
+  //   title: 'French Genders Game'
+  // },
   computed: {
     ...mapState(['mistakes'])
   }
