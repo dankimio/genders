@@ -22,7 +22,7 @@
 import WordCard from './WordCard'
 import AnswerButton from './AnswerButton'
 
-import { mapActions, mapState } from 'vuex'
+import { mapActions, mapState } from 'pinia'
 
 export default {
   components: { WordCard, AnswerButton },
