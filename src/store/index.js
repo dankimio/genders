@@ -12,81 +12,78 @@ export const store = defineStore('default', {
     }
   },
   mutations: {
-    ADD_MISTAKE(state, word) {
-      state.mistakes.push(word)
+    ADD_MISTAKE(word) {
+      this.mistakes.push(word)
     },
-    INCREMENT_CURRENT_WORD_INDEX(state) {
-      state.currentWordIndex += 1
+    INCREMENT_CURRENT_WORD_INDEX() {
+      this.currentWordIndex += 1
     },
-    INCREMENT_SCORE(state) {
-      state.score += 1
+    INCREMENT_SCORE() {
+      this.score += 1
     },
-    RESET_MISTAKES(state) {
-      state.mistakes = []
+    RESET_MISTAKES() {
+      this.mistakes = []
     },
-    RESET_SCORE(state) {
-      state.score = 0
+    RESET_SCORE() {
+      this.score = 0
     },
-    RESET_CURRENT_WORD_INDEX(state) {
-      state.currentWordIndex = 0
+    RESET_CURRENT_WORD_INDEX() {
+      this.currentWordIndex = 0
     },
-    SET_CURRENT_WORD(state, word) {
-      state.currentWord = word
+    SET_CURRENT_WORD(word) {
+      this.currentWord = word
     },
-    SET_WORDS(state, words) {
-      state.words = words
+    SET_WORDS(words) {
+      this.words = words
     },
-    SET_INCORRECT_ANSWER(state, incorrectAnswer = true) {
-      state.incorrectAnswer = incorrectAnswer
+    SET_INCORRECT_ANSWER(incorrectAnswer = true) {
+      this.incorrectAnswer = incorrectAnswer
     }
   },
   actions: {
-    addMistake(context) {
-      if (context.state.mistakes.find(mistake => mistake.word === context.state.currentWord.word)) {
+    addMistake() {
+      if (this.mistakes.find(mistake => mistake.word === this.currentWord.word)) {
         return
       }
-      context.commit('ADD_MISTAKE', context.state.currentWord)
+      this.mistakes.push(this.currentWord)
     },
-    incrementScore(context) {
-      context.commit('INCREMENT_SCORE')
+    incrementScore() {
+      this.score += 1
     },
-    loadWords(context) {
-      if (context.state.words.length) {
+    async loadWords() {
+      if (this.words.length) {
         return
       }
 
       fetch('/data/fr/words.json')
         .then(response => response.json())
         .then(json => {
-          context.commit('SET_WORDS', json)
-          context.dispatch('shuffleWords')
-          context.dispatch('showNextWord')
+          this.words = json
+          this.shuffleWords()
+          this.showNextWord()
         })
     },
-    reset(context) {
-      context.commit('RESET_SCORE')
-      context.commit('SET_CURRENT_WORD', {})
-      context.commit('RESET_CURRENT_WORD_INDEX')
-      context.commit('RESET_MISTAKES')
-      context.commit('SET_INCORRECT_ANSWER', false)
+    reset() {
+      this.score = 0
+      this.currentWord = {}
+      this.currentWordIndex = 0
+      this.mistakes = []
+      this.incorrectAnswer = false
 
-      context.dispatch('shuffleWords')
+      this.shuffleWords()
     },
-    setIncorrectAnswer(context, incorrectAnswer = true) {
-      context.commit('SET_INCORRECT_ANSWER', incorrectAnswer)
+    setIncorrectAnswer(incorrectAnswer = true) {
+      this.incorrectAnswer = incorrectAnswer
     },
-    showNextWord(context) {
-      context.commit('INCREMENT_CURRENT_WORD_INDEX')
-      context.commit('SET_CURRENT_WORD', context.state.words[context.state.currentWordIndex])
+    showNextWord() {
+      this.currentWordIndex += 1
+      this.currentWord = this.words[this.currentWordIndex]
     },
-    shuffleWords(context) {
-      context.commit('SET_WORDS', context.state.words.sort(() => Math.random() - 0.5))
+    shuffleWords() {
+      this.words = this.words.sort(() => Math.random() - 0.5)
     },
-    incrementCurrentWordIndex(context) {
-      context.commit('INCREMENT_CURRENT_WORD_INDEX')
+    incrementCurrentWordIndex() {
+      this.currentWordIndex += 1
     }
-  },
-  modules: {
-  },
-  plugins: []
+  }
 })
