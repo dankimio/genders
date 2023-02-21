@@ -3,13 +3,9 @@
     <router-view class="container flex-1 flex flex-col mx-auto px-8 pt-6" />
 
     <nav class="text-center text-gray-800 py-4 mb-2">
-      <router-link to="/rules" class="mr-4">
-        Rules
-      </router-link>
-      <router-link to="/my-words">
-        My words
-      </router-link>
-      <sup v-if="mistakes.length > 0" class="px-1 bg-gray-600 rounded-full text-white text-sm">
+      <router-link to="/rules" class="mr-4">Rules</router-link>
+      <router-link to="/my-words">My words</router-link>
+      <sup v-if="mistakes.length > 0" class="ml-1.5 px-1.5 py-0.5 bg-gray-600 rounded-full text-white text-xs">
         {{ mistakes.length }}
       </sup>
     </nav>
