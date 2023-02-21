@@ -20,7 +20,7 @@ useHead({
       Your incorrect answers will appear here.
     </p>
 
-    <ul class="text-lg">
+    <ul class="text-lg font-serif">
       <li v-for="mistake in mistakes" :key="mistake.word">
         {{ mistake.gender === 'f' ? 'une' : 'un' }}
         {{ mistake.word }}

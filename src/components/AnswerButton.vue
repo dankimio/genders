@@ -3,7 +3,7 @@
     class="flex-1 p-3
           bg-white shadow-lg hover:shadow-xl rounded-lg
           transition-shadow duration-150
-          text-center text-lg"
+          text-center text-lg font-serif"
     @click="answer"
   >
     {{ label }}
