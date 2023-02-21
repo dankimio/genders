@@ -8,7 +8,7 @@ useHead({
 
 <template>
   <div>
-    <router-link to="/" class="block mb-2">
+    <router-link to="/" class="block mb-4">
       ← Go back
     </router-link>
 
