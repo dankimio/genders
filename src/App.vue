@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="min-h-screen flex flex-col bg-gray-100 font-sans">
+  <div id="app" class="min-h-screen flex flex-col bg-gray-100 dark:bg-neutral-900 font-sans">
     <router-view class="container flex-1 flex flex-col mx-auto px-8 pt-6" />
 
     <nav class="text-center text-gray-800 py-4 mb-2">
