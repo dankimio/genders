@@ -7,7 +7,7 @@ useHead({
 </script>
 
 <template>
-  <div class="text-gray-900 dark:text-neutral-100">
+  <div class="text-neutral-900 dark:text-neutral-100">
     <router-link to="/" class="block mb-4">
       ← Go back
     </router-link>

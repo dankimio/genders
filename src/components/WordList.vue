@@ -4,13 +4,13 @@
       Score: {{ score }}
 
       <small class="text-sm ml-2">
-        <a href="#" class="text-gray-700 dark:text-neutral-400" @click="handleReset">Reset</a>
+        <a href="#" class="text-neutral-700 dark:text-neutral-400" @click="handleReset">Reset</a>
       </small>
     </h2>
 
     <WordCard />
 
-    <div class="max-w-sm w-full flex text-gray-800">
+    <div class="max-w-sm w-full flex text-neutral-800">
       <AnswerButton label="une" @answer="handleAnswer('f')" />
       <div class="mx-2" />
       <AnswerButton label="un" @answer="handleAnswer('m')" />

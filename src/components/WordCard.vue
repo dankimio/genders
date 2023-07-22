@@ -4,7 +4,7 @@
         dark:text-neutral-100
         bg-white dark:bg-neutral-800
         rounded-lg
-        text-4xl text-gray-900 font-serif
+        text-4xl text-neutral-900 font-serif
       "
   >
     <span v-if="incorrectAnswer" class="mr-2 text-red-600">
