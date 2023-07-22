@@ -1,7 +1,8 @@
 <template>
   <div
     class="flex items-center justify-center p-4 max-w-sm w-full h-48 mb-6
-        bg-white
+        dark:text-neutral-100
+        bg-white dark:bg-neutral-800
         rounded-lg
         text-4xl text-gray-900 font-serif
       "
