@@ -1,10 +1,10 @@
 <template>
   <div id="word-list" class="flex-1 flex items-center justify-center flex-col mb-32">
-    <h2 class="text-2xl mb-8 flex items-baseline">
+    <h2 class="text-2xl mb-8 flex items-baseline dark:text-neutral-200">
       Score: {{ score }}
 
       <small class="text-sm ml-2">
-        <a href="#" class="text-gray-700" @click="handleReset">Reset</a>
+        <a href="#" class="text-gray-700 dark:text-neutral-400" @click="handleReset">Reset</a>
       </small>
     </h2>
 
