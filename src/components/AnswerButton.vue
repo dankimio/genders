@@ -3,7 +3,7 @@
     class="flex-1 p-3
           dark:text-neutral-100
           bg-white rounded-lg
-          hover:bg-gray-50
+          hover:bg-neutral-50
           dark:bg-neutral-800
           dark:hover:bg-neutral-700
           hover:-translate-y-0.5
