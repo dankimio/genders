@@ -24,6 +24,6 @@ npm run build
 
 ## Hosting
 
-Cloudflare Pages builds `main` with `npm run build`, output directory `dist`, and Node.js 26.
+Cloudflare Pages builds `main` with `npm run build`, output directory `dist`.
 
 Domain: genders.dan.kim.
