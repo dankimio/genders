@@ -26,4 +26,4 @@ npm run build
 
 Cloudflare Pages builds `main` with `npm run build`, output directory `dist`, and Node.js 26.12.0.
 
-Domains: genders.dan.kim, genders.dankim.io.
+Domain: genders.dan.kim.
