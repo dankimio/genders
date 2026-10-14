@@ -1,5 +1,5 @@
 <script setup>
-import { useHead } from '@vueuse/head'
+import { useHead } from '@unhead/vue'
 
 useHead({
   title: 'Rules'
@@ -314,8 +314,10 @@ export default {
 </script>
 
 <style scoped>
+@reference "../assets/tailwind.css";
+
 th {
-  @apply border-b pb-1
+  @apply border-b border-gray-200 pb-1;
 }
 th, td {
   @apply pr-2;
@@ -330,7 +332,7 @@ tr td:nth-child(3) {
 tr th:nth-child(4), tr td:nth-child(4) {
   padding-left: .5rem;
 }
-@screen md {
+@media (min-width: 768px) {
   tr th:nth-child(4), tr td:nth-child(4) {
     padding-left: 2rem;
   }

@@ -7,17 +7,23 @@ This project is a game written in Vue that helps learners memorize the genders o
 ## Project Setup
 
 ```sh
-pnpm install
+npm install
 ```
 
 ### Compile and Hot-Reload for Development
 
 ```sh
-pnpm run dev
+npm run dev
 ```
 
 ### Compile and Minify for Production
 
 ```sh
-pnpm run build
+npm run build
 ```
+
+## Hosting
+
+Cloudflare Pages builds `main` with `npm run build`, output directory `dist`, and Node.js 26.12.0.
+
+Domains: genders.dan.kim, genders.dankim.io.

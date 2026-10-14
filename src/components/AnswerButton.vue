@@ -1,6 +1,6 @@
 <template>
   <button
-    class="flex-1 p-3
+    class="flex-1 p-3 cursor-pointer
           dark:text-neutral-100
           bg-white rounded-lg
           hover:bg-neutral-50

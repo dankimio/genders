@@ -31,6 +31,8 @@ export default {
 </style>
 
 <style>
+@reference "./assets/tailwind.css";
+
 #app {
   min-height: -webkit-fill-available;
 }
